@@ -1,7 +1,8 @@
 name:                base-noprelude
 version:             4.8.0.0
-synopsis:            base package omitting the "Prelude" module
+synopsis:            "base" package sans "Prelude" module
 homepage:            https://github.com/hvr/base-noprelude
+bug-reports:         https://github.com/hvr/base-noprelude/issues
 license:             BSD3
 license-file:        LICENSE
 author:              Herbert Valerio Riedel
@@ -12,14 +13,32 @@ cabal-version:       >=1.22
 description:
     This package simplifies defining custom "Prelude"s without having
     to use @-XNoImplicitPrelude@ by re-exporting the full
-    module-hierarchy of the @base-4.8.0.0@ package __except__ for the
-    "Prelude" module.
+    module-hierarchy of the
+    <http://hackage.haskell.org/package/base-4.8.0.0 base-4.8.0.0>
+    package /except/ for the "Prelude" module.
+    .
+    Starting with GHC 7.10 & Cabal-1.22 this package makes use of the
+    package-level @reexported-modules@ feature.
+    .
+    Each version of @base-noprelude@ depends on a specific
+    @base@-version and thus mirrors @base@'s
+    versioning (with the exception that @base-noprelude@ needs to add an
+    /additional/ 5th version component in case of bug-fix releases).
+    .
+    See <https://github.com/hvr/base-noprelude> for more information.
+
+source-repository head
+    type:     git
+    location: https://github.com/hvr/base-noprelude.git
 
 library
     build-depends:       base ==4.8.0.0
     default-language:    Haskell2010
 
-    -- not really needed since reexported-modules wouldn't clash anyway
+    -- not really needed since reexported-modules wouldn't clash with
+    -- base's modules, but kept nevertheless for consistency with
+    -- pre-GHC-7.10 versions of base-noprelude which were non-exposed
+    -- as well
     exposed: False
 
     -- re-exported modules copied from base-4.8.0.0's exposed-modules
