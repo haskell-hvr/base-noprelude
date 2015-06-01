@@ -1,6 +1,6 @@
 ## `base-noprelude` - `base` package sans `Prelude`
 
-This package is, as the title gives away, a `base`-replacement that allows to define and/or use custom `Prelude`s without having to use the `-XNoImplicitePrelude` language extension. I.e. instead of
+This package is, as the title gives away, a `base`-replacement that allows to define and/or use custom `Prelude`s without having to use the `-XNoImplicitePrelude` language extension (or use `import Prelude ()`). I.e. instead of
 
 ```haskell
 {-# LANGUAGE NoImplicitPrelude #-}
