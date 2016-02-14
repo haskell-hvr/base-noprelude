@@ -234,5 +234,6 @@ library
             GHC.Conc.Windows,
             GHC.Windows
     else
+      if !impl(ghcjs)
         reexported-modules:
             GHC.Event
