@@ -1,5 +1,5 @@
 name:                base-noprelude
-version:             4.8.2.0
+version:             4.9.0.0
 synopsis:            "base" package sans "Prelude" module
 homepage:            https://github.com/hvr/base-noprelude
 bug-reports:         https://github.com/hvr/base-noprelude/issues
@@ -14,7 +14,7 @@ description:
     This package simplifies defining custom "Prelude"s without having
     to use @-XNoImplicitPrelude@ by re-exporting the full
     module-hierarchy of the
-    <http://hackage.haskell.org/package/base-4.8.2.0 base-4.8.2.0>
+    <http://hackage.haskell.org/package/base-4.9.0.0 base-4.9.0.0>
     package /except/ for the "Prelude" module.
     .
     Starting with GHC 7.10 & Cabal-1.22 this package makes use of the
@@ -32,7 +32,7 @@ source-repository head
     location: https://github.com/hvr/base-noprelude.git
 
 library
-    build-depends:       base ==4.8.2.0
+    build-depends:       base ==4.9.0.0
     default-language:    Haskell2010
 
     -- not really needed since reexported-modules wouldn't clash with
@@ -54,8 +54,10 @@ library
         Control.Exception,
         Control.Exception.Base,
         Control.Monad,
+        Control.Monad.Fail,
         Control.Monad.Fix,
         Control.Monad.Instances,
+        Control.Monad.IO.Class,
         Control.Monad.ST,
         Control.Monad.ST.Lazy,
         Control.Monad.ST.Lazy.Safe,
@@ -78,16 +80,24 @@ library
         Data.Foldable,
         Data.Function,
         Data.Functor,
+        Data.Functor.Classes,
+        Data.Functor.Compose,
+        Data.Functor.Const,
         Data.Functor.Identity,
+        Data.Functor.Product,
+        Data.Functor.Sum,
         Data.IORef,
         Data.Int,
         Data.Ix,
+        Data.Kind,
         Data.List,
+        Data.List.NonEmpty,
         Data.Maybe,
         Data.Monoid,
         Data.Ord,
         Data.Proxy,
         Data.Ratio,
+        Data.Semigroup,
         Data.STRef,
         Data.STRef.Lazy,
         Data.STRef.Strict,
@@ -139,6 +149,8 @@ library
         GHC.Environment,
         GHC.Err,
         GHC.Exception,
+        GHC.ExecutionStack,
+        GHC.ExecutionStack.Internal,
         GHC.Exts,
         GHC.Fingerprint,
         GHC.Fingerprint.Type,
@@ -170,15 +182,16 @@ library
         GHC.IO.Handle.Text,
         GHC.IO.Handle.Types,
         GHC.IO.IOMode,
+        GHC.IO.Unsafe,
         GHC.IOArray,
         GHC.IORef,
-        GHC.IP,
         GHC.Int,
         GHC.List,
         GHC.MVar,
         GHC.Natural,
         GHC.Num,
         GHC.OldList,
+        GHC.OverloadedLabels,
         GHC.PArr,
         GHC.Pack,
         GHC.Profiling,
@@ -186,13 +199,14 @@ library
         GHC.Read,
         GHC.Real,
         GHC.RTS.Flags,
-        GHC.SrcLoc,
         GHC.ST,
         GHC.StaticPtr,
         GHC.STRef,
         GHC.Show,
         GHC.Stable,
         GHC.Stack,
+        GHC.Stack.CCS,
+        GHC.Stack.Types,
         GHC.Stats,
         GHC.Storable,
         GHC.TopHandler,
