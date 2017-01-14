@@ -1,5 +1,5 @@
 name:                base-noprelude
-version:             4.9.0.0
+version:             4.9.1.0
 synopsis:            "base" package sans "Prelude" module
 homepage:            https://github.com/hvr/base-noprelude
 bug-reports:         https://github.com/hvr/base-noprelude/issues
@@ -14,7 +14,7 @@ description:
     This package simplifies defining custom "Prelude"s without having
     to use @-XNoImplicitPrelude@ by re-exporting the full
     module-hierarchy of the
-    <http://hackage.haskell.org/package/base-4.9.0.0 base-4.9.0.0>
+    <http://hackage.haskell.org/package/base-4.9.1.0 base-4.9.1.0>
     package /except/ for the "Prelude" module.
     .
     Starting with GHC 7.10 & Cabal-1.22 this package makes use of the
@@ -32,7 +32,7 @@ source-repository head
     location: https://github.com/hvr/base-noprelude.git
 
 library
-    build-depends:       base ==4.9.0.0
+    build-depends:       base ==4.9.1.0
     default-language:    Haskell2010
 
     -- not really needed since reexported-modules wouldn't clash with
