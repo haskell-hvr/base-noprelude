@@ -1,5 +1,5 @@
 name:                base-noprelude
-version:             4.9.1.0
+version:             4.10.0.0
 synopsis:            "base" package sans "Prelude" module
 homepage:            https://github.com/hvr/base-noprelude
 bug-reports:         https://github.com/hvr/base-noprelude/issues
@@ -9,12 +9,12 @@ author:              Herbert Valerio Riedel
 maintainer:          hvr@gnu.org
 category:            Development
 build-type:          Simple
-cabal-version:       >=1.22
+cabal-version:       >=2.0
 description:
     This package simplifies defining custom "Prelude"s without having
     to use @-XNoImplicitPrelude@ by re-exporting the full
     module-hierarchy of the
-    <http://hackage.haskell.org/package/base-4.9.1.0 base-4.9.1.0>
+    <http://hackage.haskell.org/package/base-4.10.0.0 base-4.10.0.0>
     package /except/ for the "Prelude" module.
     .
     Starting with GHC 7.10 & Cabal-1.22 this package makes use of the
@@ -32,7 +32,7 @@ source-repository head
     location: https://github.com/hvr/base-noprelude.git
 
 library
-    build-depends:       base ==4.9.1.0
+    build-depends:       base ==4.10.0.0
     default-language:    Haskell2010
 
     -- not really needed since reexported-modules wouldn't clash with
@@ -66,7 +66,9 @@ library
         Control.Monad.ST.Strict,
         Control.Monad.ST.Unsafe,
         Control.Monad.Zip,
+        Data.Bifoldable,
         Data.Bifunctor,
+        Data.Bitraversable,
         Data.Bits,
         Data.Bool,
         Data.Char,
@@ -108,7 +110,6 @@ library
         Data.Type.Coercion,
         Data.Type.Equality,
         Data.Typeable,
-        Data.Typeable.Internal,
         Data.Unique,
         Data.Version,
         Data.Void,
@@ -179,6 +180,7 @@ library
         GHC.IO.Handle,
         GHC.IO.Handle.FD,
         GHC.IO.Handle.Internals,
+        GHC.IO.Handle.Lock,
         GHC.IO.Handle.Text,
         GHC.IO.Handle.Types,
         GHC.IO.IOMode,
@@ -198,6 +200,7 @@ library
         GHC.Ptr,
         GHC.Read,
         GHC.Real,
+        GHC.Records,
         GHC.RTS.Flags,
         GHC.ST,
         GHC.StaticPtr,
@@ -211,6 +214,7 @@ library
         GHC.Storable,
         GHC.TopHandler,
         GHC.TypeLits,
+        GHC.TypeNats,
         GHC.Unicode,
         GHC.Weak,
         GHC.Word,
@@ -238,6 +242,8 @@ library
         Text.Read.Lex,
         Text.Show,
         Text.Show.Functions,
+        Type.Reflection,
+        Type.Reflection.Unsafe,
         Unsafe.Coerce
 
     -- OS Specific
