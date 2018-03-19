@@ -1,11 +1,11 @@
-cabal-version:       2.0
+cabal-version:       2.2
 name:                base-noprelude
-version:             4.10.1.0
+version:             4.11.0.0
 
 synopsis:            "base" package sans "Prelude" module
 homepage:            https://github.com/hvr/base-noprelude
 bug-reports:         https://github.com/hvr/base-noprelude/issues
-license:             BSD3
+license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Herbert Valerio Riedel
 maintainer:          hvr@gnu.org
@@ -14,7 +14,7 @@ build-type:          Simple
 description:
     This package simplifies defining custom "Prelude"s without having
     to use @-XNoImplicitPrelude@ by re-exporting the full module-hierarchy of
-    the [base-4.10.1.0](https://hackage.haskell.org/package/base-4.10.1.0)
+    the [base-4.11.0.0](https://hackage.haskell.org/package/base-4.11.0.0)
     package /except/ for the "Prelude" module.
     .
     Starting with GHC 7.10 & Cabal-1.22 this package makes use of the
@@ -32,7 +32,7 @@ source-repository head
     location: https://github.com/hvr/base-noprelude.git
 
 library
-    build-depends:       base ==4.10.1.0
+    build-depends:       base ==4.11.0.0
     default-language:    Haskell2010
 
     -- not really needed since reexported-modules wouldn't clash with
@@ -138,7 +138,9 @@ library
         Foreign.Storable,
         GHC.Arr,
         GHC.Base,
+        GHC.ByteOrder,
         GHC.Char,
+        GHC.Clock,
         GHC.Conc,
         GHC.Conc.IO,
         GHC.Conc.Signal,
@@ -224,6 +226,7 @@ library
         System.CPUTime,
         System.Console.GetOpt,
         System.Environment,
+        System.Environment.Blank,
         System.Exit,
         System.IO,
         System.IO.Error,
