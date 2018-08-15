@@ -1,6 +1,6 @@
 cabal-version:       2.2
 name:                base-noprelude
-version:             4.11.1.0
+version:             4.12.0.0
 
 synopsis:            "base" package sans "Prelude" module
 homepage:            https://github.com/hvr/base-noprelude
@@ -14,7 +14,7 @@ build-type:          Simple
 description:
     This package simplifies defining custom "Prelude"s without having
     to use @-XNoImplicitPrelude@ by re-exporting the full module-hierarchy of
-    the [base-4.11.1.0](https://hackage.haskell.org/package/base-4.11.1.0)
+    the [base-4.12.0.0](https://hackage.haskell.org/package/base-4.12.0.0)
     package /except/ for the "Prelude" module.
     .
     Starting with GHC 7.10 & Cabal-1.22 this package makes use of the
@@ -32,7 +32,7 @@ source-repository head
     location: https://github.com/hvr/base-noprelude.git
 
 library
-    build-depends:       base ==4.11.1.0
+    build-depends:       base ==4.12.0.0
     default-language:    Haskell2010
 
     -- not really needed since reexported-modules wouldn't clash with
@@ -41,7 +41,7 @@ library
     -- as well
     exposed: False
 
-    -- re-exported modules copied from base-4.10.1.0's exposed-modules
+    -- re-exported modules copied from base-4.12.0.0's exposed-modules
     reexported-modules:
         Control.Applicative,
         Control.Arrow,
@@ -83,6 +83,7 @@ library
         Data.Function,
         Data.Functor,
         Data.Functor.Classes,
+        Data.Functor.Contravariant,
         Data.Functor.Compose,
         Data.Functor.Const,
         Data.Functor.Identity,
@@ -152,6 +153,7 @@ library
         GHC.Environment,
         GHC.Err,
         GHC.Exception,
+        GHC.Exception.Type,
         GHC.ExecutionStack,
         GHC.ExecutionStack.Internal,
         GHC.Exts,
@@ -191,18 +193,19 @@ library
         GHC.IORef,
         GHC.Int,
         GHC.List,
+        GHC.Maybe,
         GHC.MVar,
         GHC.Natural,
         GHC.Num,
         GHC.OldList,
         GHC.OverloadedLabels,
-        GHC.PArr,
         GHC.Pack,
         GHC.Profiling,
         GHC.Ptr,
         GHC.Read,
         GHC.Real,
         GHC.Records,
+        GHC.ResponseFile,
         GHC.RTS.Flags,
         GHC.ST,
         GHC.StaticPtr,
