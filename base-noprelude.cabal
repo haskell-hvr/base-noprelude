@@ -1,6 +1,6 @@
 cabal-version:       2.2
 name:                base-noprelude
-version:             4.14.3.0
+version:             4.16.1.0
 
 synopsis:            "base" package sans "Prelude" module
 homepage:            https://github.com/hvr/base-noprelude
@@ -14,7 +14,7 @@ build-type:          Simple
 description:
     This package simplifies defining custom "Prelude"s without having
     to use @-XNoImplicitPrelude@ by re-exporting the full module-hierarchy of
-    the [base-4.12.0.0](https://hackage.haskell.org/package/base-4.12.0.0)
+    the [base-4.16.1.0](https://hackage.haskell.org/package/base-4.16.1.0)
     package /except/ for the "Prelude" module.
     .
     An usage example for such a "Prelude"-replacement is available with
@@ -35,10 +35,11 @@ source-repository head
     location: https://github.com/hvr/base-noprelude.git
 
 library
-    build-depends:       base ==4.14.3.0
+    build-depends:       base ==4.16.1.0
     default-language:    Haskell2010
 
-    -- re-exported modules copied from base-4.12.0.0's exposed-modules
+    -- re-exported modules copied from exposed-modules / reexported-modules of
+    -- https://hackage.haskell.org/package/base-4.16.1.0/base.cabal
     reexported-modules:
       , Control.Applicative
       , Control.Arrow
@@ -107,6 +108,7 @@ library
       , Data.Type.Bool
       , Data.Type.Coercion
       , Data.Type.Equality
+      , Data.Type.Ord
       , Data.Typeable
       , Data.Unique
       , Data.Version
@@ -136,6 +138,7 @@ library
       , Foreign.Storable
       , GHC.Arr
       , GHC.Base
+      , GHC.Bits
       , GHC.ByteOrder
       , GHC.Char
       , GHC.Clock
@@ -149,6 +152,7 @@ library
       , GHC.Enum
       , GHC.Environment
       , GHC.Err
+      , GHC.Event.TimeOut
       , GHC.Exception
       , GHC.Exception.Type
       , GHC.ExecutionStack
@@ -187,15 +191,22 @@ library
       , GHC.IO.Handle.Types
       , GHC.IO.IOMode
       , GHC.IO.Unsafe
+      , GHC.IO.StdHandles
+      , GHC.IO.SubSystem
       , GHC.IOArray
       , GHC.IORef
       , GHC.Int
+      , GHC.Integer
+      , GHC.Integer.Logarithms
       , GHC.Ix
       , GHC.List
       , GHC.Maybe
       , GHC.MVar
       , GHC.Natural
       , GHC.Num
+      , GHC.Num.BigNat
+      , GHC.Num.Integer
+      , GHC.Num.Natural
       , GHC.OldList
       , GHC.OverloadedLabels
       , GHC.Pack
@@ -219,7 +230,9 @@ library
       , GHC.Storable
       , GHC.TopHandler
       , GHC.TypeLits
+      , GHC.TypeLits.Internal
       , GHC.TypeNats
+      , GHC.TypeNats.Internal
       , GHC.Unicode
       , GHC.Weak
       , GHC.Word
@@ -251,6 +264,7 @@ library
       , Type.Reflection
       , Type.Reflection.Unsafe
       , Unsafe.Coerce
+      , GHC.IOPort
 
     -- OS Specific
     if os(windows)
@@ -258,7 +272,20 @@ library
           , GHC.IO.Encoding.CodePage.API
           , GHC.IO.Encoding.CodePage.Table
           , GHC.Conc.Windows
+          , GHC.Conc.WinIO
+          , GHC.Conc.POSIX
+          , GHC.Conc.POSIX.Const
           , GHC.Windows
+          , GHC.Event.Windows
+          , GHC.Event.Windows.Clock
+          , GHC.Event.Windows.ConsoleEvent
+          , GHC.Event.Windows.FFI
+          , GHC.Event.Windows.ManagedThreadPool
+          , GHC.Event.Windows.Thread
+          , GHC.IO.Handle.Windows
+          , GHC.IO.Windows.Handle
+          , GHC.IO.Windows.Encoding
+          , GHC.IO.Windows.Paths
     else
         reexported-modules:
           , GHC.Event
